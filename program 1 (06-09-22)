@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void towers(int, char, char, char);
+
+int main() {
+    int num;
+    scanf("%d",&num);
+    towers(num, 'A', 'B', 'C');
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    return 0;
+}
+void towers(int num, char frompeg, char topeg, char auxpeg)
+{
+    if(num == 1)
+    {
+        printf("\nMoving ring %d from %c to %c",num,frompeg, topeg);
+        return;
+    }
+    towers(num-1,frompeg,auxpeg,topeg);
+    printf("\nMoving ring %d from %c to %c",num,frompeg , topeg);
+    towers(num-1,auxpeg, topeg, frompeg);
+}
