@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+	int num,i,*ptr,sum=0;
+	printf("enter how many values\n:");
+	scanf("%d",&num);
+	ptr=(int*)malloc(num*sizeof(int));
+	if(ptr==NULL)
+	{
+		printf("Memory not allocated.  ");
+		return EXIT_FAILURE;
+	}
+	printf("enter elements\n:");
+	for(i=0;i<num;i++)
+	{
+		scanf("%d",ptr+i);
+		sum+=*(ptr+i);
+	}
+	printf("Sum = %d",sum);
+	free (ptr);
+	return 0;
+}
